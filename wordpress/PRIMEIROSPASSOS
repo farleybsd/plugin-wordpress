@@ -1,2 +1,15 @@
 Criando a página de palestra
 Ir na pagina administrativa e criar a pagina palesta
+
+Definindo o primeiro plugin
+
+plugin tem que ficar no diretorio 
+https://developer.wordpress.org/plugins/plugin-basics/
+
+1 ->
+Alura -> Wp-content->puglins ->al_patrocinadores_palestras
+al_patrocinadores_palestras -> Nome do plugin
+
+2 ->
+Dentro do diretorio Alura -> Wp-content->puglins ->al_patrocinadores_palestras
+criar o arquivo al_patrocinadores_palestras.php
