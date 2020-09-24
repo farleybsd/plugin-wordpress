@@ -1,8 +1,8 @@
 <?php
 /*
 
-* Plugin Name: Patrocinadores Alura
-* Plugin URI:        https://example.com/plugins/the-basics/
+ * Plugin Name: Patrocinadores Alura
+ * Plugin URI:        https://example.com/plugins/the-basics/
  * Description:      Selecionar patrocinadores da palestra da Alura
  * Version:           1.0.0
  * Requires at least: 5.2
@@ -15,6 +15,11 @@
  * Domain Path:       /languages
 */
 
-/* Testando a chamada do plugin */
+/* Testando a chamada do plugin Ver o Log no apache */
 
 //error_log("Estou Dentro do plugin dos patrocinadores");
+
+//Acesso apenas dentro do WordPress
+if(!defined('ABSPATH')){
+    die;
+}
