@@ -7,6 +7,8 @@ plugin tem que ficar no diretorio
 https://developer.wordpress.org/plugins/plugin-basics/
 https://developer.wordpress.org/plugins/plugin-basics/best-practices/
 https://developer.wordpress.org/reference/classes/wpdb/
+https://codex.wordpress.org/Plugin_API/Action_Reference
+
 1 ->
 Alura -> Wp-content->puglins ->al_patrocinadores_palestras
 al_patrocinadores_palestras -> Nome do plugin

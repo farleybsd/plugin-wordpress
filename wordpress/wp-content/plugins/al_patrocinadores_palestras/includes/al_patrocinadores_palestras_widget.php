@@ -1,5 +1,11 @@
 <?php
 
+add_action('widgets_init','al_pat_pal_registra_widget');
+
+function al_pat_pal_registra_widget()
+{
+    register_widget('PatrocinadoresAlura');
+}
 class PatrocinadoresAlura extends WP_Widget
 {
     public function __construct()
