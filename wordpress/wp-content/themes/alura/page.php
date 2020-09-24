@@ -18,6 +18,6 @@ endif;
         ?>
     </section>
     </section>
-    <p>Eu sou page.php</p>
+   
 <?php
 get_footer();

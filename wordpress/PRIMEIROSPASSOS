@@ -6,7 +6,7 @@ Definindo o primeiro plugin
 plugin tem que ficar no diretorio 
 https://developer.wordpress.org/plugins/plugin-basics/
 https://developer.wordpress.org/plugins/plugin-basics/best-practices/
-
+https://developer.wordpress.org/reference/classes/wpdb/
 1 ->
 Alura -> Wp-content->puglins ->al_patrocinadores_palestras
 al_patrocinadores_palestras -> Nome do plugin
@@ -14,3 +14,12 @@ al_patrocinadores_palestras -> Nome do plugin
 2 ->
 Dentro do diretorio Alura -> Wp-content->puglins ->al_patrocinadores_palestras
 criar o arquivo al_patrocinadores_palestras.php
+
+3->
+Construindo o Widget
+
+Criar Alura -> Wp-content->puglins ->al_patrocinadores_palestras
+al_patrocinadores_palestras ->includes
+
+Criar Alura -> Wp-content->puglins ->al_patrocinadores_palestras
+al_patrocinadores_palestras ->includes->al_patrocinadores_palestras_widget.php
