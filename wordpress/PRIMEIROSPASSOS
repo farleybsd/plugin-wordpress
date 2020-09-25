@@ -25,3 +25,6 @@ al_patrocinadores_palestras ->includes
 
 Criar Alura -> Wp-content->puglins ->al_patrocinadores_palestras
 al_patrocinadores_palestras ->includes->al_patrocinadores_palestras_widget.php
+
+4-> Confimar o cadastro
+SELECT * FROM `wp_options` where option_name like '%al%'

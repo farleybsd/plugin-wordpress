@@ -28,7 +28,7 @@ function al_local_dia_palestra_menu_pagina()
         </h1>
         <form method="post" action="options.php">
             <?php
-
+                settings_errors();
                 do_settings_sections('local-palestra');
                 settings_fields('al_local_dia_palestra_settings');
                 submit_button();
@@ -63,7 +63,8 @@ function al_local_dia_palestra_secao()
 
     register_setting(
         'al_local_dia_palestra_settings',
-        'al_local-palestra_endereco' // campo
+        'al_local-palestra_endereco', // campo
+        'verifica_endereco'
     );
 
     // cidade
@@ -77,7 +78,8 @@ function al_local_dia_palestra_secao()
 
     register_setting(
         'al_local_dia_palestra_settings',
-        'al_local-palestra_cidade' // campo
+        'al_local-palestra_cidade', // campo
+        'verifica_cidade'
     );
 
     //data 
@@ -92,7 +94,8 @@ function al_local_dia_palestra_secao()
 
     register_setting(
         'al_local_dia_palestra_settings',
-        'al_local-palestra_data' // campo
+        'al_local-palestra_data', // campo
+        'verifica_Data'
     );
 }
 
@@ -111,7 +114,7 @@ function al_local_dia_palestra_endereco()
     ?>
 
     <input type="text" id="al_local-palestra_endereco"
-            name="al_local-palestra_endereco" require>    
+            name="al_local-palestra_endereco" value="<?= esc_attr(get_option('al_local-palestra_endereco')) ?>" require>    
 
     <?php
 }
@@ -122,7 +125,7 @@ function al_local_dia_palestra_cidade()
     ?>
 
     <input type="text" id="al_local-palestra_cidade"
-            name="al_local-palestra_cidade" require>    
+            name="al_local-palestra_cidade" value="<?= esc_attr(get_option('al_local-palestra_cidade')) ?>" require>    
 
     <?php
 }
@@ -133,7 +136,63 @@ function al_local_dia_palestra_data()
     ?>
 
     <input type="date" id="al_local-palestra_data"
-            name="al_local-palestra_data" require>    
+            name="al_local-palestra_data" value="<?= esc_attr(get_option('al_local-palestra_data')) ?>" require>    
 
     <?php
+}
+
+/*
+* Configuração de callback de verificação dos campos
+*/
+
+//Endereco
+function verifica_endereco($endereco)
+{
+    if(empty($endereco))
+    {
+        $endereco = get_option('al_local-palestra_endereco');
+        add_settings_error(
+            'al_local_dia_palestra_mensagem_erro',
+            'al_local_dia_palestra_erro_endereco',
+            'O campo endereco não pode ser vazio!',
+            'error'
+        );
+    }
+
+    return $endereco;
+}
+
+// cidade 
+
+function verifica_cidade($cidade)
+{
+    if(empty($cidade))
+    {
+        $cidade = get_option('al_local-palestra_cidade');
+        add_settings_error(
+            'al_local_dia_palestra_mensagem_erro',
+            'al_local_dia_palestra_erro_cidade',
+            'O campo cidade não pode ser vazio!',
+            'error'
+        );
+    }
+
+    return $cidade;
+}
+
+//Data 
+function verifica_Data($data)
+{
+    if(empty($data))
+    {
+        $data = get_option('al_local-palestra_data');
+        add_settings_error(
+            'al_local_dia_palestra_mensagem_erro',
+            'al_local_dia_palestra_erro_data',
+            'O campo data não pode ser vazio!',
+            'error'
+        );
+    }
+
+    return $data;
 }
