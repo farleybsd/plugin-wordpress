@@ -30,7 +30,7 @@ function al_local_dia_palestra_menu_pagina()
             <?php
 
                 do_settings_sections('local-palestra');
-
+                settings_fields('al_local_dia_palestra_settings');
             ?>
         </form>
     </div>
@@ -49,9 +49,36 @@ function al_local_dia_palestra_secao()
         'al_local_dia_palestra_campos_secao_detalhes',
         'local-palestra' //slug do menu
     );
+
+    add_settings_field(
+        'al_local-palestra_endereco',
+        'Endereço',
+        'al_local_dia_palestra_endereco',
+        'local-palestra', // slug
+        'al_local_dia_palestra_secao' //secao
+    );
+
+    register_setting(
+        'al_local_dia_palestra_settings',
+        'al_local-palestra_endereco' // campo
+    );
 }
 
 function al_local_dia_palestra_campos_secao_detalhes()
 {
-    
+    ?>
+
+    <p>Insira os dados do endereco , cidade e data da proxima palestra da Alura</p>
+
+    <?php
+}
+
+function al_local_dia_palestra_endereco()
+{
+    ?>
+
+    <input type="text" id="al_local-palestra_endereco"
+            name="al_local-palestra_endereco" require>    
+
+    <?php
 }
