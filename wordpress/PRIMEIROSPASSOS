@@ -28,3 +28,10 @@ al_patrocinadores_palestras ->includes->al_patrocinadores_palestras_widget.php
 
 4-> Confimar o cadastro
 SELECT * FROM `wp_options` where option_name like '%al%'
+
+short code na pagina palestras -> embed google maps
+
+faz o vinculo do meu codigo com minha pagina criada
+com wordpress
+Adcionar na pagina o shortcode
+[al_local_dia_palestra]
