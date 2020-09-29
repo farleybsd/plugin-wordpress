@@ -58,6 +58,7 @@ define( 'AUTH_SALT',        'coloque a sua frase única aqui' );
 define( 'SECURE_AUTH_SALT', 'coloque a sua frase única aqui' );
 define( 'LOGGED_IN_SALT',   'coloque a sua frase única aqui' );
 define( 'NONCE_SALT',       'coloque a sua frase única aqui' );
+define('OPENWEATHER_API_KEY','d3597c95bde950f61af93e939dcda58f');
 
 /**#@-*/
 
