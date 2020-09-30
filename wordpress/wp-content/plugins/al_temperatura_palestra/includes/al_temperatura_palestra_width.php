@@ -1,5 +1,14 @@
 <?php
 
+add_action('widgets_init','al_temperatura_palestra_registra_widget');
+
+function al_temperatura_palestra_registra_widget()
+{
+    register_widget(
+        'TemperaturaPalestra'
+    );
+}
+
 class TemperaturaPalestra extends WP_Widget
 {
     function __construct()
@@ -15,22 +24,14 @@ class TemperaturaPalestra extends WP_Widget
     {
         $cidade = urlencode(get_option('al_local-palestra_cidade'));
         $curl = curl_init();
-        curl_setopt($curl,CURLOPT_URL,"http://api.openweathermap.org/data/2.5/weather?q=". $cidade ."&appid= . OPENWEATHER_API_KEY");
-        curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
-
+        curl_setopt($curl, CURLOPT_URL, "https://api.openweathermap.org/data/2.5/weather?q=". $cidade .",br&appid=". OPENWEATHER_API_KEY);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $resultado = curl_exec($curl);
-
-        $resultadoArray = json_decode($resultado,true);
-
-        //print_r(round($resultadoArray['main']['temp'] - 273.15));
+        $resultadoArray = json_decode($resultado, true);
         ?>
         <section class="container-temperatura">
-           <p class="cidade-temperatura">
-               <?=get_option('al_local-palestra_cidade'); ?>
-           </p> 
-           <p class="temperatua">
-          <?= round($resultadoArray['main']['temp'] - 273.15)  ?>
-           </p>
+            <p class="cidade-temperatura"><?= get_option('al_local-palestra_cidade') ?></p>
+            <p class="temperatura"><?= round($resultadoArray['main']['temp'] -273.15) ?> °C</p>
         </section>
         <?php
 
